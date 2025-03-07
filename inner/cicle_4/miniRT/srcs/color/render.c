@@ -1,0 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jeongbpa <jeongbpa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/11 15:33:52 by jeongbpa          #+#    #+#             */
+/*   Updated: 2024/03/07 18:02:36 by jeongbpa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minirt.h"
+
+void	set_pixel(t_minirt *minirt, int x, int y, unsigned int color)
+{
+	int		i;
+	char	c_color[4];
+
+	c_color[0] = color >> 24 & 0xFF;
+	c_color[1] = color >> 16 & 0xFF;
+	c_color[2] = color >> 8 & 0xFF;
+	c_color[3] = color >> 0 & 0xFF;
+	i = (x * minirt->img->bits_per_pixel / 8)
+		+ ((minirt->img_height - 2 - y) * minirt->img->size_line);
+	if (minirt->img->endian == 0)
+	{
+		minirt->img->addr[i] = c_color[3];
+		minirt->img->addr[++i] = c_color[2];
+		minirt->img->addr[++i] = c_color[1];
+		minirt->img->addr[++i] = c_color[0];
+	}
+	else
+	{
+		minirt->img->addr[i] = c_color[0];
+		minirt->img->addr[++i] = c_color[1];
+		minirt->img->addr[++i] = c_color[2];
+		minirt->img->addr[++i] = c_color[3];
+	}
+}
+
+void	anti_aliasing(t_minirt *minirt, int x, int y, t_color *pixel_color)
+{
+	int				i[2];
+	t_ray			tmp;
+	int				sqrt_spp;
+
+	i[0] = 0;
+	sqrt_spp = sqrt(minirt->camera.samples_per_pixel) / minirt->camera.k;
+	if (sqrt_spp == 0)
+		sqrt_spp = 1;
+	while (i[0] < sqrt_spp)
+	{
+		i[1] = 0;
+		while (i[1] < sqrt_spp)
+		{
+			tmp = get_ray(minirt, \
+			(double)(x + (i[1] + random_double(-0.5, 0.5)) / sqrt_spp) / \
+			minirt->img_width, \
+			(double)(y + (i[0] + random_double(-0.5, 0.5)) / sqrt_spp) / \
+			minirt->img_height);
+			*pixel_color = vec_add(*pixel_color, ray_color(minirt->bvh, &tmp, \
+			minirt->camera.max_depth, minirt));
+			*pixel_color = vec_add(*pixel_color, minirt->ambient);
+			i[1]++;
+		}
+		i[0]++;
+	}
+}
+
+void	print_color(t_minirt *minirt)
+{
+	int				xyi[3];
+	t_color			pixel_color;
+
+	xyi[1] = 0;
+	while (xyi[1] < minirt->img_height)
+	{
+		xyi[0] = 0;
+		while (xyi[0] < minirt->img_width)
+		{
+			pixel_color = color(0, 0, 0);
+			anti_aliasing(minirt, xyi[0], xyi[1], &pixel_color);
+			xyi[2] = -1;
+			while (++xyi[2] < minirt->camera.k && xyi[0] + xyi[2] \
+			< minirt->img_width)
+			{
+				set_pixel(minirt, xyi[0] + xyi[2], xyi[1], \
+				set_color(pixel_color, minirt->camera.samples_per_pixel));
+			}
+			xyi[0] += minirt->camera.k;
+		}
+		xyi[1] += 1;
+	}
+}

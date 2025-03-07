@@ -1,0 +1,26 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-icon {
+  animation: rotate 2s linear infinite; /* Adjust duration and easing as needed */
+  transform-origin: center; /* Rotate around the center of the icon */
+}
+
+.social-logo-wrapper {
+  position: relative;
+  left: 6px;
+}
+.social-text {
+  position: relative;
+  padding: 20px;
+}
+#social-section {
+  display: flex;
+  justify-content: center;
+}

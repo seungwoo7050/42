@@ -1,0 +1,115 @@
+body,
+html {
+  overflow: hidden; /* Hides horizontal overflow */
+  margin: 0; /* Removes any default margin */
+}
+
+.container-fluid {
+  max-width: 100%; /* Prevent container from exceeding viewport width */
+}
+
+* {
+  box-sizing: border-box; /* Include padding and border in the element's width */
+  margin: 0; /* Remove unwanted margins */
+}
+
+.banner-hover {
+  transition: color 0.3s ease-in-out; /* Smooth transition for text color */
+  color: rgba(255, 255, 255, 0.8); /* Slightly dim text color initially */
+}
+
+.banner-hover:hover {
+  filter: brightness(1.5);
+  color: rgba(255, 255, 255, 1); /* Bright white text on hover */
+}
+
+.main-panel {
+  width: calc(100vw - 20rem);
+  height: calc(100vh - 5.5rem);
+  border: 0.08rem solid rgba(255, 255, 255, 0.7);
+  margin-left: 20rem;
+  background-color: black;
+}
+
+.side-bar {
+  width: 18.5rem; /* Sidebar width in rem */
+  height: calc(
+    100vh - 5.5rem
+  ); /* Subtract banner height from viewport height */
+  overflow: hidden;
+  border: 0.08rem solid rgba(255, 255, 255, 0.7);
+  /* background-color: black; */
+}
+
+.user-list-item-hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.user-list-item-hover:hover {
+  filter: brightness(1.5);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.my-user-wrapper {
+  width: 15rem;
+  height: 3rem;
+  /* color: white; */
+  /* background-color: rgba(60, 120, 60); */
+  /* border: none; */
+}
+
+.my-user-icon {
+  float: left;
+}
+
+.my-user-text {
+  float: right;
+  /* font-size: 1.2rem; */
+  /* font-family: verdana; */
+}
+
+.user-list-item-wrapper {
+  width: 15rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.22);
+  border: none;
+}
+
+#pong-scene {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border: 0.08rem solid rgb(180, 150, 50);
+  /* z-index: 999999; */
+}
+
+.player-score {
+  color: white;
+  font-family: sans-serif;
+  font-size: 3.5rem;
+  /* position: absolute; */
+  /* bottom: 100px; */
+}
+
+/* #player1-score {
+  left: 35%;
+}
+
+#player2-score {
+  right: 35%;
+} */
+
+/* .btn-forfeit {
+  color: black;
+  background-color: rgba(180, 150, 50, 0.8);
+  /* border-color: rgba(180, 150, 50, 0.8); */
+/* }
+
+.btn-forfeit:hover,
+.btn-forfeit:focus,
+.btn-forfeit:active,
+.open > .dropdown-toggle.btn-forfeit {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(180, 150, 50, 1);
+  /* border-color: rgba(180, 150, 50, 1); */
+/* } */

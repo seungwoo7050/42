@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% load render_vite_bundle %}
+
+{% block body %}
+<div id="error-message" data-msg="{{ msg }}" style="display: none"></div>
+
+{% if debug %}
+<script type="module" src="http://localhost:8002/main.jsx"></script>
+{% else %}
+{% render_vite_bundle %}
+{% endif %}
+
+{% endblock %}

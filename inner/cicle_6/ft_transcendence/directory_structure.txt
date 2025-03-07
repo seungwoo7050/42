@@ -1,0 +1,109 @@
+.
+├── LICENSE.txt
+├── Makefile
+├── README.md
+├── backend
+│   ├── index
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── templates
+│   │   │   ├── base.html
+│   │   │   └── index.html
+│   │   ├── templatetags
+│   │   │   ├── __init__.py
+│   │   │   └── render_vite_bundle.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── manage.py
+│   ├── oauth
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── common.py
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   ├── requirements.txt
+│   ├── spa
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── context_processors.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   └── static
+│       ├── assets
+│       │   ├── 42-logo.svg
+│       │   ├── camera-fill.svg
+│       │   ├── person-add.svg
+│       │   ├── person-fill-check.svg
+│       │   └── person-fill-gear.svg
+│       └── favicons
+│           ├── about.txt
+│           ├── android-chrome-192x192.png
+│           ├── android-chrome-512x512.png
+│           ├── apple-touch-icon.png
+│           ├── favicon-16x16.png
+│           ├── favicon-32x32.png
+│           ├── favicon.ico
+│           └── site.webmanifest
+├── compose.yaml
+├── directory_structure.txt
+├── docker
+│   ├── nginx
+│   │   ├── Dockerfile
+│   │   └── nginx.conf
+│   └── web
+│       ├── dev
+│       │   ├── Dockerfile
+│       │   └── entrypoint.sh
+│       └── prod
+│           ├── Dockerfile
+│           └── entrypoint.sh
+├── docker-compose_rebuild.sh
+├── docker-compose_up.sh
+├── docs
+│   ├── asyncapi.yaml
+│   └── openapi.yaml
+└── frontend
+    ├── eslint.config.js
+    ├── node_modules
+    ├── package.json
+    ├── src
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── Bouncer.jsx
+    │   ├── Dashboard.jsx
+    │   ├── Game
+    │   │   ├── GameAI.jsx
+    │   │   ├── GameComponents.jsx
+    │   │   ├── GamePvP.jsx
+    │   │   ├── GameTournament.jsx
+    │   │   └── Pong.jsx
+    │   ├── Home
+    │   │   ├── Dashboard.jsx
+    │   │   ├── Home.jsx
+    │   │   └── Sidebar.jsx
+    │   ├── NotFound.jsx
+    │   ├── Profiles.jsx
+    │   ├── Social.css
+    │   ├── Social.jsx
+    │   ├── TwoFA.jsx
+    │   ├── UserListItem.jsx
+    │   ├── index.html
+    │   ├── main.jsx
+    │   ├── oauth.js
+    │   └── utils.js
+    ├── vite.config.js
+    └── yarn.lock
+
+23 directories, 84 files
