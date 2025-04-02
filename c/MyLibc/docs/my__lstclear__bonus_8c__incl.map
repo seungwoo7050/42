@@ -1,0 +1,9 @@
+<map id="src/my_lstclear_bonus.c" name="src/my_lstclear_bonus.c">
+<area shape="rect" id="Node000001" title="리스트 전체를 삭제하는 함수" alt="" coords="5,5,169,31"/>
+<area shape="rect" id="Node000002" href="$mylibc_8h.html" title="mylibc 라이브러리 헤더 파일" alt="" coords="52,79,122,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,31,90,63,84,63,84,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="9,153,77,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="82,106,61,141,56,138,77,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,153,164,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="97,103,119,138,114,141,92,106"/>
+</map>
