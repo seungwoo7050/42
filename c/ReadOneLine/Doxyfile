@@ -1,0 +1,9 @@
+PROJECT_NAME            = "ReadOneLine"
+OUTPUT_DIRECTORY        = docs
+INPUT                   = ./src
+RECURSIVE               = YES
+FILE_PATTERNS           = *.c *.h
+EXTRACT_ALL             = NO
+GENERATE_HTML           = YES
+GENERATE_LATEX          = NO
+HAVE_DOT                = YES
